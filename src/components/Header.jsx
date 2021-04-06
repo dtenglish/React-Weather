@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppBar, Toolbar, Typography } from '@material-ui/core';
+import { AppBar, IconButton, Toolbar, Typography } from '@material-ui/core';
 import { makeStyles } from "@material-ui/styles";
 import SettingsIcon from '@material-ui/icons/Settings';
 
@@ -16,11 +16,13 @@ const Header = () => {
     <AppBar position="static">
       <Toolbar>
         {/* Header Name */}
-        <Typography className={classes.typographyStyles}>
+        <Typography variant="h4" className={classes.typographyStyles}>
           Weather Forecast
         </Typography>
-        {/* Menu Icon */}
-        <SettingsIcon />
+        {/* Settings Menu Button */}
+        <IconButton aria-label="settings">
+          <SettingsIcon fontSize="large" />
+        </IconButton>
       </Toolbar>
     </AppBar>
   );
