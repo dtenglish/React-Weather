@@ -1,9 +1,6 @@
 import React from 'react';
 import { Box, Button, Card, CardActions, CardContent, CardHeader, CardMedia, Typography } from '@material-ui/core'
-import { makeStyles } from '@material-ui/core/styles';
 import WbSunnyIcon from '@material-ui/icons/WbSunny';
-
-
 
 const ForecastItem = (props) => {
   const { day, date, description, icon, temperature, weather } = props;
@@ -18,7 +15,7 @@ const ForecastItem = (props) => {
       </Box>
       <CardContent>
         <Typography variant="h2">{temperature}</Typography>
-        {/* Add Real Feel Temp */}
+        {/* To do: Add Real Feel Temp */}
         <Typography variant="body2" color="textSecondary" component="p">{description}</Typography>
       </CardContent>
     </Card>

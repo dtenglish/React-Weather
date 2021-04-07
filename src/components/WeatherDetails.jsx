@@ -2,11 +2,11 @@ import React from 'react';
 import { Box, Grid, Typography } from '@material-ui/core'
 import WbSunnyIcon from '@material-ui/icons/WbSunny';
 
-const ForecastHeader = () => {
+const WeatherDetails = () => {
   return (
     <Box flexGrow={1} mt={"2rem"}>
       <Grid container>
-        {/* Today's Weather */}
+        {/* Current Weather Basic Information*/}
         <Grid item container alignItems="center" xs={4}>
           <Grid item xs={6}>
             <WbSunnyIcon fontSize="large" />
@@ -14,7 +14,7 @@ const ForecastHeader = () => {
               70*
           </Typography>
           </Grid>
-          {/* Today's Weather Details */}
+          {/* Current Weather Detailed Information */}
           <Grid item xs={6}>
             <Typography variant="body2" color="textSecondary" component="p">
               Precipitation: 0%
@@ -43,6 +43,6 @@ const ForecastHeader = () => {
   );
 }
 
-export default ForecastHeader;
+export default WeatherDetails;
 
 // To do: Adjust heading levels for accessibility

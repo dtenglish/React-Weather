@@ -1,9 +1,9 @@
 import React from 'react';
 import { Grid } from '@material-ui/core';
 import Forecast from './Forecast';
-import ForecastHeader from './ForecastHeader';
+import WeatherDetails from './WeatherDetails';
 
-const Content = () => {
+const Weather = () => {
   return (
     <Grid container direction="row" spacing={1}>
       {/* Gutter */}
@@ -11,7 +11,7 @@ const Content = () => {
       {/* Content */}
       <Grid item container xs={12} sm={10}>
         <Grid item xs={12}>
-          <ForecastHeader />
+          <WeatherDetails />
         </Grid>
         <Grid item xs={12}>
           <Forecast />
@@ -23,4 +23,4 @@ const Content = () => {
   );
 }
 
-export default Content;
+export default Weather;

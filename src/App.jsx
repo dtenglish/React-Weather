@@ -1,6 +1,6 @@
 import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Content from './components/Content';
+import Weather from './components/Weather';
 import Header from './components/Header';
 
 const App = () => {
@@ -10,7 +10,7 @@ const App = () => {
       {/* Header */}
       <Header />
       {/* Body */}
-      <Content />
+      <Weather />
     </React.Fragment>
   );
 }

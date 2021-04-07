@@ -3,7 +3,7 @@ import { Box, Grid } from '@material-ui/core';
 import ForecastItem from './ForecastItem';
 
 const Forecast = () => {
-  const tempProps = {
+  const weatherData = {
     day: 'Monday',
     date: 'April 7th',
     description: 'Sunny',
@@ -19,24 +19,24 @@ const Forecast = () => {
         <Grid item container spacing={1}>
           {/* Forecast Items */}
           <Grid item xs>
-            <ForecastItem {...tempProps} />
+            <ForecastItem {...weatherData} />
           </Grid>
           <Grid item xs>
-            <ForecastItem {...tempProps} />
+            <ForecastItem {...weatherData} />
           </Grid>
           <Grid item xs>
-            <ForecastItem {...tempProps} />
+            <ForecastItem {...weatherData} />
           </Grid>
           <Grid item xs>
-            <ForecastItem {...tempProps} />
+            <ForecastItem {...weatherData} />
           </Grid>
           <Grid item xs>
-            <ForecastItem {...tempProps} />
+            <ForecastItem {...weatherData} />
           </Grid>
         </Grid>
       </Grid>
     </Box>
   );
-}
+};
 
 export default Forecast;
