@@ -5,19 +5,21 @@ import WbSunnyIcon from '@material-ui/icons/WbSunny';
 
 
 
-const ForecastItem = () => {
+const ForecastItem = (props) => {
+  const { day, date, description, icon, temperature, weather } = props;
   return (
     <Card>
       <CardHeader
-        title="Day Goes Here"
-        subheader="Date Goes Here"
+        title={day}
+        subheader={date}
       />
       <Box textAlign="center">
         <WbSunnyIcon fontSize="large" />
       </Box>
       <CardContent>
-        <Typography>Temperature Goes Here</Typography>
-        <Typography variant="body2" color="textSecondary" component="p">Forecast Information Goes Here</Typography>
+        <Typography variant="h2">{temperature}</Typography>
+        {/* Add Real Feel Temp */}
+        <Typography variant="body2" color="textSecondary" component="p">{description}</Typography>
       </CardContent>
     </Card>
   );

@@ -1,15 +1,8 @@
 import React from 'react';
 import { Box, Grid, Typography } from '@material-ui/core'
-import { makeStyles } from '@material-ui/core/styles';
 import WbSunnyIcon from '@material-ui/icons/WbSunny';
 
-const useStyles = makeStyles((theme) => ({
-
-}));
-
 const ForecastHeader = () => {
-  const classes = useStyles();
-
   return (
     <Box flexGrow={1} mt={"2rem"}>
       <Grid container>
