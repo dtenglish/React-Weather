@@ -2,8 +2,10 @@ import React from 'react';
 import { Grid } from '@material-ui/core';
 import Forecast from './Forecast';
 import WeatherDetails from './WeatherDetails';
+import FetchWeather from './FetchWeather';
 
 const Weather = () => {
+  const weather = FetchWeather('San Francisco');
   return (
     <Grid container direction="row" spacing={1}>
       {/* Gutter */}
