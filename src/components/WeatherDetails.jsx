@@ -2,29 +2,51 @@ import React from 'react';
 import { Box, Grid, Typography } from '@material-ui/core'
 import WbSunnyIcon from '@material-ui/icons/WbSunny';
 
-const WeatherDetails = () => {
+const WeatherDetails = props => {
+  const {
+    condition,
+    country,
+    date,
+    description,
+    feels_like,
+    humidity,
+    location,
+    sunrise,
+    sunset,
+    temperature,
+    timezone,
+    wind_speed,
+  } = props.weather;
+
+  console.log(props);
+
   return (
     <Box flexGrow={1} mt={"2rem"}>
       <Grid container>
-        {/* Current Weather Basic Information*/}
+        {/* Current Weather Basic Information */}
         <Grid item container alignItems="center" xs={4}>
           <Grid item xs={6}>
             <WbSunnyIcon fontSize="large" />
             <Typography variant="h3" component="h2" display="inline">
-              70*
-          </Typography>
+              {temperature}&deg;F
+            </Typography>
           </Grid>
           {/* Current Weather Detailed Information */}
           <Grid item xs={6}>
             <Typography variant="body2" color="textSecondary" component="p">
-              Precipitation: 0%
-          </Typography>
+              Humidity: {humidity} %
+            </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
-              Humidity: 0%
-          </Typography>
-            <Typography variant="body2" color="textSecondary" component="p">
-              Wind: 0%
-          </Typography>
+              Wind: {wind_speed} mph
+            </Typography>
+          </Grid>
+          <Grid item xs={12}>
+            <Typography variant="body1" color="textSecondary" component="p">
+              Feels like: {feels_like}&deg;F
+            </Typography>
+            <Typography variant="body1" color="textSecondary" component="p" style={{ textTransform: 'capitalize' }}>
+              {description}
+            </Typography>
           </Grid>
         </Grid>
         {/* Center Gutter */}
@@ -32,10 +54,9 @@ const WeatherDetails = () => {
         {/* Location & Date Information */}
         <Grid item xs={4}>
           <Box textAlign="right">
-            <Typography variant="h6">City Goes Here</Typography>
-            <Typography variant="h6">State/Country</Typography>
+            <Typography variant="h6">{location}</Typography>
+            <Typography variant="h6">{country}</Typography>
             <Typography variant="body2" color="textSecondary" component="p">Day and Time Goes Here</Typography>
-            <Typography variant="body2" color="textSecondary" component="p">Current Weather Description</Typography>
           </Box>
         </Grid>
       </Grid>
