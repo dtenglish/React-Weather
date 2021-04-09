@@ -1,6 +1,12 @@
 import React from 'react';
+import dayjs from 'dayjs';
 import { Box, Grid, Typography } from '@material-ui/core'
 import WbSunnyIcon from '@material-ui/icons/WbSunny';
+import ConvertTimestamp from './ConvertTimestamp';
+
+// Required for Day.js advanced formatting
+var advancedFormat = require('dayjs/plugin/advancedFormat');
+dayjs.extend(advancedFormat);
 
 const WeatherDetails = props => {
   const {
@@ -18,10 +24,14 @@ const WeatherDetails = props => {
     wind_speed,
   } = props.weather;
 
+  const currentTime = ConvertTimestamp(date, timezone);
+  const currentDay = dayjs(currentTime).format('dddd');
+  const currentDate = dayjs(currentTime).format('MMM Do');
+
   console.log(props);
 
   return (
-    <Box flexGrow={1} mt={"2rem"}>
+    <Box flexGrow={1} mt="2rem">
       <Grid container>
         {/* Current Weather Basic Information */}
         <Grid item container alignItems="center" xs={4}>
@@ -56,7 +66,9 @@ const WeatherDetails = props => {
           <Box textAlign="right">
             <Typography variant="h6">{location}</Typography>
             <Typography variant="h6">{country}</Typography>
-            <Typography variant="body2" color="textSecondary" component="p">Day and Time Goes Here</Typography>
+            <Typography variant="body2" color="textSecondary" component="p">
+              {currentDay} {currentDate}
+            </Typography>
           </Box>
         </Grid>
       </Grid>

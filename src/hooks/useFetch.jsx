@@ -15,7 +15,7 @@ const useFetch = (query) => {
       }
     };
     fetchData();
-  }, []);
+  }, [query]);
   return { data, error };
 }
 

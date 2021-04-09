@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Grid } from '@material-ui/core';
+import { Box, CircularProgress, Grid } from '@material-ui/core';
 import Forecast from './Forecast';
 import WeatherDetails from './WeatherDetails';
 import FetchWeather from './FetchWeather';
@@ -25,7 +25,11 @@ const Weather = () => {
       </Grid>
     );
   } else {
-    return <div>Loading...</div>
+    return (
+      <Box align="center">
+        <CircularProgress size="4rem" />
+      </Box>
+    );
   }
 }
 
