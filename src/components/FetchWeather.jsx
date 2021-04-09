@@ -1,8 +1,8 @@
 import useFetch from '../hooks/useFetch';
 
 // Use useFetch hook to pull weather data from OpenWeather API
-const FetchWeather = location => {
-  const weather = useFetch(location);
+const FetchWeather = (query) => {
+  const weather = useFetch('weather', query);
 
   // Map API weather data to more usable format
   const mapWeatherData = data => {
