@@ -3,16 +3,9 @@ import { Box, Grid } from '@material-ui/core';
 import ForecastItem from './ForecastItem';
 
 const Forecast = props => {
-  const weatherData = {
-    day: 'Monday',
-    date: 'April 7th',
-    description: 'Sunny',
-    icon: 'sun',
-    temperature: '70*',
-    weather: 'Sunny'
-  }
+  const forecastData = props;
 
-  console.log(props);
+  console.log(forecastData);
 
   return (
     <Box flexGrow={1} mt={"2rem"}>
@@ -21,19 +14,19 @@ const Forecast = props => {
         <Grid item container spacing={1}>
           {/* Forecast Items */}
           <Grid item xs>
-            <ForecastItem {...weatherData} />
+            <ForecastItem {...forecastData[0]} />
           </Grid>
           <Grid item xs>
-            <ForecastItem {...weatherData} />
+            <ForecastItem {...forecastData[1]} />
           </Grid>
           <Grid item xs>
-            <ForecastItem {...weatherData} />
+            <ForecastItem {...forecastData[2]} />
           </Grid>
           <Grid item xs>
-            <ForecastItem {...weatherData} />
+            <ForecastItem {...forecastData[3]} />
           </Grid>
           <Grid item xs>
-            <ForecastItem {...weatherData} />
+            <ForecastItem {...forecastData[4]} />
           </Grid>
         </Grid>
       </Grid>

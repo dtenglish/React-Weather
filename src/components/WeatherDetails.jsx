@@ -3,6 +3,7 @@ import { Box, Grid, Typography } from '@material-ui/core'
 import WbSunnyIcon from '@material-ui/icons/WbSunny';
 
 const WeatherDetails = props => {
+  console.log(props);
   const {
     condition,
     country,
@@ -19,7 +20,7 @@ const WeatherDetails = props => {
     formattedDay,
     formattedDate,
     formattedTime,
-  } = props.weather;
+  } = props;
 
   return (
     <Box flexGrow={1} mt="2rem">

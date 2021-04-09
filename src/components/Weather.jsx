@@ -19,10 +19,10 @@ const Weather = () => {
         {/* Content */}
         <Grid item container xs={12} sm={10}>
           <Grid item xs={12}>
-            <WeatherDetails weather={weather} />
+            <WeatherDetails {...weather} />
           </Grid>
           <Grid item xs={12}>
-            <Forecast forecast={forecast} />
+            <Forecast {...forecast} />
           </Grid>
         </Grid>
         {/* Gutter */}

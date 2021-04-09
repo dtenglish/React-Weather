@@ -14,16 +14,19 @@ const FetchForecast = (query) => {
   const mapForecastData = data => {
     const mapped = {
       condition: data.weather[0].id,
+      description: data.weather[0].description,
       temperature: Math.round(data.main.temp),
       timestamp: data.dt,
       convertedTimestamp: ConvertTimestamp(data.dt),
     }
     mapped.formattedDay = dayjs(mapped.convertedTimestamp).format('dddd');
     mapped.formattedDate = dayjs(mapped.convertedTimestamp).format('MMM Do');
+
     return mapped;
   }
 
   if (forecast.data) {
+    console.log(forecast.data);
     return (
       // Filter results to one per day, map each remaining result
       forecast.data.list

@@ -1,22 +1,30 @@
 import React from 'react';
-import { Box, Button, Card, CardActions, CardContent, CardHeader, CardMedia, Typography } from '@material-ui/core'
+import { Box, Card, CardContent, CardHeader, Typography } from '@material-ui/core'
 import WbSunnyIcon from '@material-ui/icons/WbSunny';
 
-const ForecastItem = (props) => {
-  const { day, date, description, icon, temperature, weather } = props;
+const ForecastItem = props => {
+  console.log(props);
+  const {
+    condition,
+    description,
+    temperature,
+    formattedDay,
+    formattedDate,
+  } = props;
+
   return (
     <Card>
       <CardHeader
-        title={day}
-        subheader={date}
+        title={formattedDay}
+        subheader={formattedDate}
       />
       <Box textAlign="center">
         <WbSunnyIcon fontSize="large" />
       </Box>
       <CardContent>
-        <Typography variant="h2">{temperature}</Typography>
+        <Typography variant="h2">{temperature}&deg;F</Typography>
         {/* To do: Add Real Feel Temp */}
-        <Typography variant="body2" color="textSecondary" component="p">{description}</Typography>
+        <Typography variant="body2" color="textSecondary" component="p" style={{ textTransform: 'capitalize' }}>{description}</Typography>
       </CardContent>
     </Card>
   );
