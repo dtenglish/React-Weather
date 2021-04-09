@@ -10,6 +10,8 @@ const Weather = () => {
   const weather = FetchWeather('San Francisco');
   const forecast = FetchForecast('San Francisco');
   if (weather && forecast) {
+    console.log(weather);
+    console.log(forecast);
     return (
       <Grid container direction="row" spacing={1}>
         {/* Gutter */}
