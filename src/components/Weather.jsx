@@ -22,7 +22,7 @@ const Weather = () => {
             <WeatherDetails {...weather} />
           </Grid>
           <Grid item xs={12}>
-            <Forecast {...forecast} />
+            <Forecast forecast={forecast} />
           </Grid>
         </Grid>
         {/* Gutter */}
