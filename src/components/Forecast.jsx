@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Grid } from '@material-ui/core';
 import ForecastItem from './ForecastItem';
 
-const Forecast = () => {
+const Forecast = props => {
   const weatherData = {
     day: 'Monday',
     date: 'April 7th',
@@ -11,6 +11,8 @@ const Forecast = () => {
     temperature: '70*',
     weather: 'Sunny'
   }
+
+  console.log(props);
 
   return (
     <Box flexGrow={1} mt={"2rem"}>

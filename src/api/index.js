@@ -6,7 +6,7 @@ const URL = process.env.REACT_APP_API_URL;
 export default axios.create({
   baseURL: URL,
   params: {
+    units: 'imperial',
     appid: KEY,
-    units: 'imperial'
   }
 });
