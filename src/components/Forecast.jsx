@@ -8,14 +8,13 @@ const Forecast = props => {
   const getForecastItem = forecastData => {
     return (
       <Grid item xs key={forecastData.timestamp}>
-        {console.log(forecastData)}
         <ForecastItem {...forecastData} />
       </Grid>
     );
   }
 
   return (
-    <Box flexGrow={1} mt={"2rem"}>
+    <Box mt={"1rem"}>
       <Grid container>
         {/* Forecast Content */}
         <Grid item container spacing={1}>
