@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from 'react';
-import debounce from 'lodash.debounce';
+import debounce from 'lodash-es/debounce';
 import { Grid } from '@material-ui/core';
 import FetchForecast from './FetchForecast';
 import FetchWeather from './FetchWeather';
