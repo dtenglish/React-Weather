@@ -14,8 +14,6 @@ const WeatherDetails = props => {
     sunrise,
     sunset,
     temperature,
-    timestamp,
-    timezone,
     wind_speed,
     formattedDay,
     formattedDate,
@@ -51,8 +49,6 @@ const WeatherDetails = props => {
             </Typography>
           </Grid>
         </Grid>
-        {/* Center Gutter */}
-        <Grid item xs={4} />
         {/* Location & Date Information */}
         <Grid item xs={4}>
           <Box textAlign="right">

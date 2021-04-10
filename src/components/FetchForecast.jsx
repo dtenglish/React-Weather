@@ -6,7 +6,7 @@ import ConvertTimestamp from './ConvertTimestamp';
 var advancedFormat = require('dayjs/plugin/advancedFormat');
 dayjs.extend(advancedFormat);
 
-// Use useFetch hook to pull forecase data from OpenWeather API
+// Use useFetch hook to pull forecast data from OpenWeather API
 const FetchForecast = (query) => {
   const forecast = useFetch('forecast', query);
 
