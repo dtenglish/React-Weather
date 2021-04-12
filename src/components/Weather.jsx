@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import debounce from 'lodash-es/debounce';
-import { Box, Container, Grid } from '@material-ui/core';
+import { Box, Divider, Container, Grid } from '@material-ui/core';
 import FetchForecast from './FetchForecast';
 import FetchWeather from './FetchWeather';
 import Forecast from './Forecast';
@@ -26,7 +26,7 @@ const Weather = () => {
     console.log(weather);
     console.log(forecast);
     return (
-      <Container maxWidth="md">
+      <Container maxWidth="sm">
         <Box mt="2rem">
           <Grid container direction="row" spacing={2}>
             {/* Details & Search */}
@@ -35,6 +35,7 @@ const Weather = () => {
             </Grid>
             <Grid item xs={12}>
               <WeatherDetails {...weather} />
+              <Divider variant="middle" />
             </Grid>
             {/* Forecast */}
             <Grid item xs={12}>
@@ -52,3 +53,5 @@ const Weather = () => {
 }
 
 export default Weather;
+
+// To do: add toggles for dark/light mode, measurement units

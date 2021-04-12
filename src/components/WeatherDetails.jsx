@@ -21,50 +21,62 @@ const WeatherDetails = props => {
   } = props;
 
   return (
-    <Box mt={"1rem"}>
-      <Grid container>
-        {/* Weather Icon */}
-        <Grid item container xs={3}>
-          <Box textAlign="center" pl="1rem">
-            <Typography variant="h1">
-              <RenderWeatherIcon id={condition} />
-            </Typography>
-            <Typography variant="h6" component="p" style={{ textTransform: 'capitalize' }}>
-              {description}
-            </Typography>
-          </Box>
-        </Grid>
-        {/* Current Weather Basic Information */}
-        <Grid item xs={3}>
-          <Box pt="1rem">
-            <Typography variant="h3" component="h2">
-              {temperature}&deg;F
-            </Typography>
-            <Typography variant="body1" component="p">
-              Feels Like: {feels_like}&deg;F
-            </Typography>
-            <Typography variant="body2" color="textSecondary" component="p">
-              Humidity: {humidity} %
-            </Typography>
-            <Typography variant="body2" color="textSecondary" component="p">
-              Wind: {wind_speed} mph
-            </Typography>
-          </Box>
-        </Grid>
-        {/* Weather Detailed Information */}
-
-        {/* Location & Date Information */}
+    <Grid container>
+      {/* Location & Date Information */}
+      <Grid item container xs={12}>
         <Grid item xs={6}>
-          <Box textAlign="right" pr="1rem" pt="1rem">
-            <Typography variant="h4">{location}, {country}</Typography>
+          <Typography variant="h5">{location}, {country}</Typography>
+        </Grid>
+        <Grid item xs={6}>
+          <Box textAlign="right">
             <Typography variant="h5" component="p">
-              {formattedDay}, {formattedDate}
+              {formattedDay}, {formattedDate}<br />{formattedTime}
             </Typography>
-            <Typography variant="h5" component="p">{formattedTime}</Typography>
           </Box>
         </Grid>
       </Grid>
-    </Box >
+      {/* Current Weather Information */}
+      <Grid item xs={6}>
+        <Box pt="1rem">
+          <Typography variant="h1" component="h2">
+            {temperature}&deg;F
+            </Typography>
+          <Box pl=".5rem">
+            <Typography variant="body1" component="p">
+              Feels Like: {feels_like}&deg;F
+              </Typography>
+            <Typography variant="body2" color="textSecondary" component="p">
+              Humidity: {humidity} %
+              </Typography>
+            <Typography variant="body2" color="textSecondary" component="p">
+              Wind: {wind_speed} mph
+              </Typography>
+          </Box>
+        </Box>
+      </Grid>
+      {/* Current Weather Icon */}
+      <Grid item container xs={6}>
+        <Box
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          height="100%"
+          width="100%"
+        >
+          <Typography variant="h1" style={{ fontSize: '12rem' }}>
+            <RenderWeatherIcon id={condition} />
+          </Typography>
+        </Box>
+      </Grid>
+      {/* Current Weather Description */}
+      <Grid item xs={12}>
+        <Box textAlign="center" pl="1rem" py="1rem">
+          <Typography variant="h5" component="p" style={{ textTransform: 'capitalize' }}>
+            {description}
+          </Typography>
+        </Box>
+      </Grid>
+    </Grid>
   );
 }
 
