@@ -23,51 +23,51 @@ const WeatherDetails = props => {
   return (
     <Box mt={"1rem"}>
       <Grid container>
-        {/* Current Weather Basic Information */}
-        <Grid item container xs={6}>
-          <Grid item container xs={6}>
-            <Box textAlign="center">
-              <Typography variant="h2">
-                <RenderWeatherIcon id={condition} />
-              </Typography>
-            </Box>
-            <Grid item>
-              <Typography variant="h3" component="h2" display="inline">
-                {temperature}&deg;F
+        {/* Weather Icon */}
+        <Grid item container xs={3}>
+          <Box textAlign="center" pl="1rem">
+            <Typography variant="h1">
+              <RenderWeatherIcon id={condition} />
             </Typography>
-              <Typography variant="body1" color="textSecondary" component="p">
-                Feels Like: {feels_like}&deg;F
-            </Typography>
-            </Grid>
-          </Grid>
-          {/* Current Weather Detailed Information */}
-          <Grid item xs={6}>
             <Typography variant="h6" component="p" style={{ textTransform: 'capitalize' }}>
               {description}
             </Typography>
+          </Box>
+        </Grid>
+        {/* Current Weather Basic Information */}
+        <Grid item xs={3}>
+          <Box pt="1rem">
+            <Typography variant="h3" component="h2">
+              {temperature}&deg;F
+            </Typography>
+            <Typography variant="body1" component="p">
+              Feels Like: {feels_like}&deg;F
+            </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
               Humidity: {humidity} %
-          </Typography>
+            </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
               Wind: {wind_speed} mph
-          </Typography>
-          </Grid>
+            </Typography>
+          </Box>
         </Grid>
+        {/* Weather Detailed Information */}
+
         {/* Location & Date Information */}
         <Grid item xs={6}>
-          <Box textAlign="right">
+          <Box textAlign="right" pr="1rem" pt="1rem">
             <Typography variant="h4">{location}, {country}</Typography>
-            <Typography variant="body1" color="textSecondary" component="p">
+            <Typography variant="h5" component="p">
               {formattedDay}, {formattedDate}
             </Typography>
             <Typography variant="h5" component="p">{formattedTime}</Typography>
           </Box>
         </Grid>
       </Grid>
-    </Box>
+    </Box >
   );
 }
 
 export default WeatherDetails;
 
-// To do: Adjust heading levels for accessibility
+// To do: Adjust heading levels for accessibility, display state instead of country if inside US
