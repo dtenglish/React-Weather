@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Card, CardContent, CardHeader, Typography } from '@material-ui/core';
+import { Box, Typography } from '@material-ui/core';
 import RenderWeatherIcon from './RenderWeatherIcon';
 
 const ForecastItem = props => {
@@ -12,22 +12,27 @@ const ForecastItem = props => {
   } = props;
 
   return (
-    <Card>
-      <CardHeader
-        title={formattedDay}
-        subheader={formattedDate}
-      />
-      <Box textAlign="center">
-        <Typography variant="h4">
-          <RenderWeatherIcon id={condition} />
+    <Box>
+      <Box textAlign="center" width="100%">
+        <Typography variant="h5">
+          {formattedDay}
         </Typography>
-      </Box>
-      <CardContent>
-        <Typography variant="h4">{temperature}&deg;F</Typography>
-        {/* To do: Add Real Feel Temp */}
+        {/* <Typography variant="body1">
+          {formattedDate}
+        </Typography> */}
+        <Typography variant="h5">{temperature}&deg;F</Typography>
+        <Box my=".5rem">
+          <Typography variant="h3">
+            <RenderWeatherIcon id={condition} />
+          </Typography>
+        </Box>
         <Typography variant="body2" color="textSecondary" component="p" style={{ textTransform: 'capitalize' }}>{description}</Typography>
-      </CardContent>
-    </Card>
+      </Box>
+      {/* <Grid item xs>
+            <Typography variant="h4">{temperature}&deg;F</Typography>
+            <Typography variant="body2" color="textSecondary" component="p" style={{ textTransform: 'capitalize' }}>{description}</Typography>
+          </Grid> */}
+    </Box>
   );
 }
 
