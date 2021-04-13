@@ -55,7 +55,7 @@ const WeatherDetails = props => {
         </Box>
       </Grid>
       {/* Current Weather Icon */}
-      <Grid item container xs={6}>
+      <Grid item xs={6}>
         <Box
           display="flex"
           justifyContent="center"

@@ -12,27 +12,25 @@ const ForecastItem = props => {
   } = props;
 
   return (
-    <Box>
-      <Box textAlign="center" width="100%">
-        <Typography variant="h5">
-          {formattedDay}
-        </Typography>
-        {/* <Typography variant="body1">
+    <Box textAlign="center">
+      <Typography variant="h6">
+        {formattedDay}
+      </Typography>
+      {/* <Typography variant="body1">
           {formattedDate}
         </Typography> */}
-        <Typography variant="h5">{temperature}&deg;F</Typography>
-        <Box my=".5rem">
-          <Typography variant="h3">
-            <RenderWeatherIcon id={condition} />
-          </Typography>
-        </Box>
-        <Typography variant="body2" color="textSecondary" component="p" style={{ textTransform: 'capitalize' }}>{description}</Typography>
+      <Typography variant="h5">{temperature}&deg;F</Typography>
+      <Box my=".5rem">
+        <Typography variant="h3">
+          <RenderWeatherIcon id={condition} />
+        </Typography>
       </Box>
-      {/* <Grid item xs>
-            <Typography variant="h4">{temperature}&deg;F</Typography>
-            <Typography variant="body2" color="textSecondary" component="p" style={{ textTransform: 'capitalize' }}>{description}</Typography>
-          </Grid> */}
+      <Typography variant="body2" color="textSecondary" component="p" style={{ textTransform: 'capitalize' }}>{description}</Typography>
     </Box>
+    /* <Grid item xs>
+          <Typography variant="h4">{temperature}&deg;F</Typography>
+          <Typography variant="body2" color="textSecondary" component="p" style={{ textTransform: 'capitalize' }}>{description}</Typography>
+        </Grid> */
   );
 }
 
