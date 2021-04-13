@@ -26,7 +26,7 @@ const WeatherDetails = props => {
       {/* Location & Date Information */}
       <Grid item container xs={12}>
         <Grid item xs={6}>
-          <Typography variant="h5">{location}, {country}</Typography>
+          <Typography variant="h5">{location},<br />{country}</Typography>
         </Grid>
         <Grid item xs={6}>
           <Box textAlign="right">
@@ -38,20 +38,20 @@ const WeatherDetails = props => {
       </Grid>
       {/* Current Weather Information */}
       <Grid item xs={6}>
-        <Box pt="1rem">
+        <Box pt="2rem">
           <Typography variant="h1" component="h2">
             {temperature}&deg;F
-            </Typography>
+          </Typography>
           <Box pl=".5rem">
             <Typography variant="body1" component="p">
               Feels Like: {feels_like}&deg;F
-              </Typography>
+            </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
               Humidity: {humidity} %
-              </Typography>
+            </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
               Wind: {wind_speed} mph
-              </Typography>
+            </Typography>
           </Box>
         </Box>
       </Grid>
@@ -60,18 +60,18 @@ const WeatherDetails = props => {
         <Box
           display="flex"
           justifyContent="center"
-          alignItems="center"
+          alignItems="flex-end"
           height="100%"
-          width="100%"
+          pb="1rem"
         >
-          <Typography variant="h1" style={{ fontSize: '12rem' }}>
+          <Typography style={{ fontSize: '9rem', lineHeight: '0' }}>
             <RenderWeatherIcon condition={condition} isDay={isDay} />
           </Typography>
         </Box>
       </Grid>
       {/* Current Weather Description */}
       <Grid item xs={12}>
-        <Box textAlign="center" pl="1rem" py="1rem">
+        <Box textAlign="center" py="1rem">
           <Typography variant="h5" component="p" style={{ textTransform: 'capitalize' }}>
             {description}
           </Typography>
