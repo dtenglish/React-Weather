@@ -10,7 +10,6 @@ import WeatherDetails from './WeatherDetails';
 
 const Weather = () => {
   const [location, setLocation] = useState('San Francisco');
-
   const weather = FetchWeather(location);
   const forecast = FetchForecast(location);
 
@@ -23,8 +22,6 @@ const Weather = () => {
   };
 
   if (weather && forecast) {
-    console.log(weather);
-    console.log(forecast);
     return (
       <Container maxWidth="sm">
         <Box mt="2rem">

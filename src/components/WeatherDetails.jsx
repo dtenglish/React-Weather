@@ -18,6 +18,7 @@ const WeatherDetails = props => {
     formattedDay,
     formattedDate,
     formattedTime,
+    isDay
   } = props;
 
   return (
@@ -64,7 +65,7 @@ const WeatherDetails = props => {
           width="100%"
         >
           <Typography variant="h1" style={{ fontSize: '12rem' }}>
-            <RenderWeatherIcon id={condition} />
+            <RenderWeatherIcon condition={condition} isDay={isDay} />
           </Typography>
         </Box>
       </Grid>

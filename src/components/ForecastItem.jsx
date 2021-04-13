@@ -22,7 +22,7 @@ const ForecastItem = props => {
       <Typography variant="h5">{temperature}&deg;F</Typography>
       <Box my=".5rem">
         <Typography variant="h3">
-          <RenderWeatherIcon id={condition} />
+          <RenderWeatherIcon condition={condition} />
         </Typography>
       </Box>
       <Typography variant="body2" color="textSecondary" component="p" style={{ textTransform: 'capitalize' }}>{description}</Typography>
