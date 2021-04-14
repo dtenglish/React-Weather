@@ -8,11 +8,13 @@ var advancedFormat = require('dayjs/plugin/advancedFormat');
 dayjs.extend(advancedFormat);
 
 // Use useFetch hook to pull weather data from OpenWeather API
-const FetchWeather = (query) => {
+const FetchWeather = query => {
   const weather = useFetch('weather', query);
 
   // Map API weather data to more usable format
   const mapWeatherData = data => {
+    const convertedTimestamp = ConvertTimestamp(data.dt, data.timezone);
+
     const mapped = {
       condition: data.weather[0].id,
       country: data.sys.country,
@@ -26,17 +28,15 @@ const FetchWeather = (query) => {
       timestamp: data.dt,
       timezone: data.timezone,
       windSpeed: Math.round(data.wind.speed),
-      convertedTimestamp: ConvertTimestamp(data.dt),
       convertedCountry: ConvertCountryCode(data.sys.country),
+      formattedDay: dayjs(convertedTimestamp).format('dddd'),
+      formattedDate: dayjs(convertedTimestamp).format('MMM Do'),
+      formattedTime: dayjs(convertedTimestamp).format('h:mm A'),
       isDay: data.timestamp > data.sunrise && data.timestamp < data.sunset
         ? true
         : false,
     }
-    mapped.formattedDay = dayjs(mapped.convertedTimestamp).format('dddd');
-    mapped.formattedDate = dayjs(mapped.convertedTimestamp).format('MMM Do');
-    mapped.formattedTime = dayjs(mapped.convertedTimestamp).format('h:mm A');
 
-    console.log(mapped.convertedCountry);
     return mapped;
   }
 
