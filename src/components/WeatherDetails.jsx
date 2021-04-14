@@ -6,19 +6,19 @@ const WeatherDetails = props => {
   console.log(props);
   const {
     condition,
-    country,
     description,
-    feels_like,
+    feelsLike,
     humidity,
     location,
     sunrise,
     sunset,
     temperature,
-    wind_speed,
+    windSpeed,
     formattedDay,
     formattedDate,
     formattedTime,
-    isDay
+    isDay,
+    convertedCountry
   } = props;
 
   return (
@@ -26,7 +26,7 @@ const WeatherDetails = props => {
       {/* Location & Date Information */}
       <Grid item container xs={12}>
         <Grid item xs={6}>
-          <Typography variant="h5">{location},<br />{country}</Typography>
+          <Typography variant="h5">{location},<br />{convertedCountry}</Typography>
         </Grid>
         <Grid item xs={6}>
           <Box textAlign="right">
@@ -44,13 +44,13 @@ const WeatherDetails = props => {
           </Typography>
           <Box pl=".5rem">
             <Typography variant="body1" component="p">
-              Feels Like: {feels_like}&deg;F
+              Feels Like: {feelsLike}&deg;F
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
               Humidity: {humidity} %
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
-              Wind: {wind_speed} mph
+              Wind: {windSpeed} mph
             </Typography>
           </Box>
         </Box>

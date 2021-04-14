@@ -1,5 +1,6 @@
 import dayjs from 'dayjs';
 import useFetch from '../hooks/useFetch';
+import ConvertCountryCode from './ConvertCountryCode';
 import ConvertTimestamp from './ConvertTimestamp';
 
 // Required for Day.js advanced formatting
@@ -16,7 +17,7 @@ const FetchWeather = (query) => {
       condition: data.weather[0].id,
       country: data.sys.country,
       description: data.weather[0].description,
-      feels_like: Math.round(data.main.feels_like),
+      feelsLike: Math.round(data.main.feels_like),
       humidity: data.main.humidity,
       location: data.name,
       sunrise: data.sys.sunrise,
@@ -24,16 +25,18 @@ const FetchWeather = (query) => {
       temperature: Math.round(data.main.temp),
       timestamp: data.dt,
       timezone: data.timezone,
-      wind_speed: Math.round(data.wind.speed),
+      windSpeed: Math.round(data.wind.speed),
       convertedTimestamp: ConvertTimestamp(data.dt),
+      convertedCountry: ConvertCountryCode(data.sys.country),
+      isDay: data.timestamp > data.sunrise && data.timestamp < data.sunset
+        ? true
+        : false,
     }
     mapped.formattedDay = dayjs(mapped.convertedTimestamp).format('dddd');
     mapped.formattedDate = dayjs(mapped.convertedTimestamp).format('MMM Do');
     mapped.formattedTime = dayjs(mapped.convertedTimestamp).format('h:mm A');
-    mapped.isDay = mapped.timestamp > mapped.sunrise && mapped.timestamp < mapped.sunset
-      ? true
-      : false;
 
+    console.log(mapped.convertedCountry);
     return mapped;
   }
 
