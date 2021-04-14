@@ -8,7 +8,7 @@ const ForecastItem = props => {
     description,
     temperature,
     formattedDay,
-    formattedDate,
+    tempUnit,
   } = props;
 
   return (
@@ -19,7 +19,7 @@ const ForecastItem = props => {
       {/* <Typography variant="body1">
           {formattedDate}
         </Typography> */}
-      <Typography variant="h5">{temperature}&deg;F</Typography>
+      <Typography variant="h5">{temperature}{tempUnit}</Typography>
       <Box my=".5rem">
         <Typography variant="h3">
           <RenderWeatherIcon condition={condition} />

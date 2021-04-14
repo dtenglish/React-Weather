@@ -3,22 +3,21 @@ import { Box, Grid, Typography } from '@material-ui/core';
 import RenderWeatherIcon from './RenderWeatherIcon';
 
 const WeatherDetails = props => {
-  console.log(props);
   const {
     condition,
     description,
     feelsLike,
     humidity,
     location,
-    sunrise,
-    sunset,
     temperature,
     windSpeed,
     formattedDay,
     formattedDate,
     formattedTime,
     isDay,
-    convertedCountry
+    convertedCountry,
+    tempUnit,
+    speedUnit
   } = props;
 
   return (
@@ -40,17 +39,17 @@ const WeatherDetails = props => {
       <Grid item xs={6}>
         <Box pt="2rem">
           <Typography variant="h1" component="h2">
-            {temperature}&deg;F
+            {temperature}{tempUnit}
           </Typography>
           <Box pl=".5rem">
             <Typography variant="body1" component="p">
-              Feels Like: {feelsLike}&deg;F
+              Feels Like: {feelsLike}{tempUnit}
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
               Humidity: {humidity} %
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
-              Wind: {windSpeed} mph
+              Wind: {windSpeed} {speedUnit}
             </Typography>
           </Box>
         </Box>

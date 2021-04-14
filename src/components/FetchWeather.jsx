@@ -2,14 +2,15 @@ import dayjs from 'dayjs';
 import useFetch from '../hooks/useFetch';
 import ConvertCountryCode from './ConvertCountryCode';
 import ConvertTimestamp from './ConvertTimestamp';
+import RenderTemperatureUnit from './RenderTemperatureUnit';
 
 // Required for Day.js advanced formatting
 var advancedFormat = require('dayjs/plugin/advancedFormat');
 dayjs.extend(advancedFormat);
 
 // Use useFetch hook to pull weather data from OpenWeather API
-const FetchWeather = query => {
-  const weather = useFetch('weather', query);
+const FetchWeather = (query, isMetric) => {
+  const weather = useFetch('weather', query, isMetric);
 
   // Map API weather data to more usable format
   const mapWeatherData = data => {
@@ -33,6 +34,8 @@ const FetchWeather = query => {
       formattedDate: dayjs(convertedTimestamp).format('MMM Do'),
       formattedTime: dayjs(convertedTimestamp).format('h:mm A'),
       isDay: data.dt > data.sys.sunrise && data.dt < data.sys.sunset,
+      tempUnit: RenderTemperatureUnit(isMetric),
+      speedUnit: isMetric != true ? 'mph' : 'kph'
     }
 
     return mapped;

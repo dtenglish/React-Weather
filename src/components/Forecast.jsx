@@ -14,13 +14,11 @@ const Forecast = props => {
   }
 
   return (
-    <Grid container>
-      {/* Forecast Content */}
-      <Grid item container>
-        {/* Forecast Items */}
+    <Box pb="1rem">
+      <Grid container>
         {forecastArray.map(forecastData => getForecastItem(forecastData))}
       </Grid>
-    </Grid>
+    </Box>
   );
 };
 

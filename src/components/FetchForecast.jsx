@@ -1,14 +1,15 @@
 import dayjs from 'dayjs';
 import useFetch from '../hooks/useFetch';
 import ConvertTimestamp from './ConvertTimestamp';
+import RenderTemperatureUnit from './RenderTemperatureUnit';
 
 // Required for Day.js advanced formatting
 var advancedFormat = require('dayjs/plugin/advancedFormat');
 dayjs.extend(advancedFormat);
 
 // Use useFetch hook to pull forecast data from OpenWeather API
-const FetchForecast = query => {
-  const forecast = useFetch('forecast', query);
+const FetchForecast = (query, isMetric) => {
+  const forecast = useFetch('forecast', query, isMetric);
 
   // Map API weather data to more usable format
   const mapForecastData = data => {
@@ -21,6 +22,7 @@ const FetchForecast = query => {
       timestamp: data.dt,
       formattedDay: dayjs(convertedTimestamp).format('dddd'),
       formattedDate: dayjs(convertedTimestamp).format('MMM Do'),
+      tempUnit: RenderTemperatureUnit(isMetric),
     }
 
     return mapped;

@@ -7,11 +7,13 @@ import Forecast from './Forecast';
 import SearchBar from './SearchBar';
 import Loading from './Loading';
 import WeatherDetails from './WeatherDetails';
+import WeatherOptions from './WeatherOptions';
 
 const Weather = () => {
   const [location, setLocation] = useState('San Francisco');
-  const weather = FetchWeather(location);
-  const forecast = FetchForecast(location);
+  const [isMetric, setIsMetric] = useState(false);
+  const weather = FetchWeather(location, isMetric);
+  const forecast = FetchForecast(location, isMetric);
 
   const debounceSearch = useCallback(
     debounce(searchTerm => setLocation(searchTerm), 500), []
@@ -31,12 +33,16 @@ const Weather = () => {
               <SearchBar {...{ onLocationChange }} />
             </Grid>
             <Grid item xs={12}>
-              <WeatherDetails {...weather} />
+              <WeatherDetails {...weather} isMetric={isMetric} />
               <Divider variant="middle" />
             </Grid>
             {/* Forecast */}
             <Grid item xs={12}>
               <Forecast forecast={forecast} />
+              <Divider variant="middle" />
+            </Grid>
+            <Grid item xs={12}>
+              <WeatherOptions isMetric={isMetric} setIsMetric={setIsMetric} />
             </Grid>
           </Grid>
         </Box>
