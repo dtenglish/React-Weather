@@ -32,7 +32,7 @@ const FetchWeather = query => {
       formattedDay: dayjs(convertedTimestamp).format('dddd'),
       formattedDate: dayjs(convertedTimestamp).format('MMM Do'),
       formattedTime: dayjs(convertedTimestamp).format('h:mm A'),
-      isDay: data.timestamp > data.sunrise && data.timestamp < data.sunset,
+      isDay: data.dt > data.sys.sunrise && data.dt < data.sys.sunset,
     }
 
     return mapped;
