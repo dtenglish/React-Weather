@@ -7,8 +7,11 @@ dayjs.extend(utc);
 const ConvertTimestamp = (time, timezone) => {
   const convertedTimestamp = dayjs
     .utc(time * 1000) // converted to milliseconds
-    .utcOffset(!timezone)
-    .format();
+    .utcOffset(
+      timezone != null
+        ? timezone / 3600 // converted to hours
+        : 0
+    );
   return convertedTimestamp;
 }
 
