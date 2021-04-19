@@ -35,7 +35,7 @@ const FetchWeather = (query, isMetric) => {
       formattedTime: dayjs(convertedTimestamp).format('h:mm A'),
       isDay: data.dt > data.sys.sunrise && data.dt < data.sys.sunset,
       tempUnit: RenderTemperatureUnit(isMetric),
-      speedUnit: isMetric != true ? 'mph' : 'kph'
+      speedUnit: isMetric !== true ? 'mph' : 'kph'
     }
 
     return mapped;

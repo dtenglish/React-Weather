@@ -1,5 +1,5 @@
-import React, { useCallback, useState } from 'react';
-import debounce from 'lodash-es/debounce';
+import React, { useCallback } from 'react';
+import { debounce } from 'lodash-es';
 import { Box, Divider, Container, Grid } from '@material-ui/core';
 import usePersistedState from '../hooks/usePersistedState';
 import FetchForecast from './FetchForecast';
@@ -16,6 +16,7 @@ const Weather = () => {
   const weather = FetchWeather(location, isMetric);
   const forecast = FetchForecast(location, isMetric);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const debounceSearch = useCallback(
     debounce(searchTerm => setLocation(searchTerm), 500), []
   );

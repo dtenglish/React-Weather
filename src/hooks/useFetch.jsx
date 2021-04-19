@@ -5,7 +5,7 @@ const useFetch = (path, query, isMetric) => {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
 
-  const units = isMetric != true
+  const units = isMetric !== true
     ? 'imperial'
     : 'metric'
 
@@ -19,7 +19,7 @@ const useFetch = (path, query, isMetric) => {
       }
     };
     fetchData();
-  }, [path, query, isMetric]);
+  }, [path, query, isMetric, units]);
   return { data, error };
 }
 
