@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import debounce from 'lodash-es/debounce';
 import { Box, Divider, Container, Grid } from '@material-ui/core';
+import usePersistedState from '../hooks/usePersistedState';
 import FetchForecast from './FetchForecast';
 import FetchWeather from './FetchWeather';
 import Forecast from './Forecast';
@@ -10,8 +11,8 @@ import WeatherDetails from './WeatherDetails';
 import WeatherOptions from './WeatherOptions';
 
 const Weather = () => {
-  const [location, setLocation] = useState('San Francisco');
-  const [isMetric, setIsMetric] = useState(false);
+  const [location, setLocation] = usePersistedState('location', 'San Francisco');
+  const [isMetric, setIsMetric] = usePersistedState('isMetric', false);
   const weather = FetchWeather(location, isMetric);
   const forecast = FetchForecast(location, isMetric);
 
