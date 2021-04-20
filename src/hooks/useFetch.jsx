@@ -12,13 +12,13 @@ const useFetch = (path, query, isMetric, setError) => {
       try {
         const response = await API.get(`/${path}?q=${query}&units=${units}`);
         setData(response.data);
-        // setError(null);
       } catch (err) {
         setError(err);
       }
     };
     fetchData();
-  }, [path, query, isMetric, units]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [path, query, isMetric]);
   return { data };
 }
 
