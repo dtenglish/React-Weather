@@ -18,7 +18,7 @@ const WeatherDetails = props => {
     convertedCountry,
     tempUnit,
     speedUnit
-  } = props;
+  } = props.weather;
 
   return (
     <Grid container>

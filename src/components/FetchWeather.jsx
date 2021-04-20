@@ -9,8 +9,8 @@ var advancedFormat = require('dayjs/plugin/advancedFormat');
 dayjs.extend(advancedFormat);
 
 // Use useFetch hook to pull weather data from OpenWeather API
-const FetchWeather = (query, isMetric) => {
-  const weather = useFetch('weather', query, isMetric);
+const FetchWeather = (location, isMetric, setError) => {
+  const weather = useFetch('weather', location, isMetric, setError);
 
   // Map API weather data to more usable format
   const mapWeatherData = data => {
