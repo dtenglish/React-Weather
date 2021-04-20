@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { debounce } from 'lodash-es';
+import { debounce, delay } from 'lodash-es';
 import { Box, Divider, Container, Grid } from '@material-ui/core';
 import usePersistedState from '../hooks/usePersistedState';
 import FetchForecast from './FetchForecast';
@@ -12,6 +12,7 @@ import WeatherOptions from './WeatherOptions';
 
 const Weather = () => {
   const [location, setLocation] = usePersistedState('location', 'San Francisco');
+  const [lastGoodSearch, setLastGoodSearch] = usePersistedState('lastGoodSearch', 'San Francisco');
   const [isMetric, setIsMetric] = usePersistedState('isMetric', false);
   const [error, setError] = useState(null);
   const weather = FetchWeather(location, isMetric, setError);
@@ -22,12 +23,19 @@ const Weather = () => {
     debounce(searchTerm => {
       setLocation(searchTerm);
       setError(null);
-    }, 500), []
+    }, 500)
   );
 
   const onLocationChange = e => {
     debounceSearch(e.target.value);
   };
+
+  useEffect(() => {
+    if (error) {
+      setLocation(lastGoodSearch);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [error, location]);
 
   return (
     <Container maxWidth="sm">
