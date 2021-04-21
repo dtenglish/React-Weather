@@ -63,7 +63,7 @@ const WeatherDetails = props => {
           height="100%"
           pb="1rem"
         >
-          <Typography style={{ fontSize: '9rem', lineHeight: '0' }}>
+          <Typography color="secondary" style={{ fontSize: '9rem', lineHeight: '0' }}>
             <RenderWeatherIcon condition={condition} isDay={isDay} />
           </Typography>
         </Box>

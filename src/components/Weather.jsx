@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { debounce } from 'lodash-es';
-import { Box, Divider, Container, Grid } from '@material-ui/core';
+import { Box, Container, Divider, Grid, Paper } from '@material-ui/core';
 import usePersistedState from '../hooks/usePersistedState';
 import FetchForecast from './FetchForecast';
 import FetchWeather from './FetchWeather';
@@ -48,30 +48,34 @@ const Weather = () => {
   }, [error, location]);
 
   return (
-    <Container maxWidth="sm">
+    <Container disableGutters={true} maxWidth="sm" >
       <Box mt="2rem">
-        <Grid container direction="row" spacing={2}>
-          <Grid item xs={12}>
-            <SearchBar {...{ onLocationChange }} {...{ error }} />
-          </Grid>
-          {(weather && forecast) ? (
-            <>
+        <Paper>
+          <Box px="2rem" py="1rem">
+            <Grid container direction="row" spacing={2}>
               <Grid item xs={12}>
-                <WeatherDetails {...{ weather }} />
-                <Divider variant="middle" />
+                <SearchBar {...{ onLocationChange }} {...{ error }} />
               </Grid>
-              <Grid item xs={12}>
-                <Forecast {...{ forecast }} />
-                <Divider variant="middle" />
-              </Grid>
-              <Grid item xs={12}>
-                <WeatherOptions {...{ isMetric }} {...{ setIsMetric }} />
-              </Grid>
-            </>
-          ) : (
-            <Loading />
-          )}
-        </Grid>
+              {(weather && forecast) ? (
+                <>
+                  <Grid item xs={12}>
+                    <WeatherDetails {...{ weather }} />
+                    <Divider variant="middle" />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Forecast {...{ forecast }} />
+                    <Divider variant="middle" />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <WeatherOptions {...{ isMetric }} {...{ setIsMetric }} />
+                  </Grid>
+                </>
+              ) : (
+                <Loading />
+              )}
+            </Grid>
+          </Box>
+        </Paper>
       </Box>
     </Container>
   );

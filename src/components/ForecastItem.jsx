@@ -16,21 +16,14 @@ const ForecastItem = props => {
       <Typography variant="h6">
         {formattedDay}
       </Typography>
-      {/* <Typography variant="body1">
-          {formattedDate}
-        </Typography> */}
-      <Typography variant="h5">{temperature}{tempUnit}</Typography>
       <Box my=".5rem">
-        <Typography variant="h3">
+        <Typography variant="h3" color="secondary">
           <RenderWeatherIcon condition={condition} />
         </Typography>
       </Box>
-      <Typography variant="body2" color="textSecondary" component="p" style={{ textTransform: 'capitalize' }}>{description}</Typography>
+      <Typography variant="h5">{temperature}{tempUnit}</Typography>
+      {/* <Typography variant="body2" color="textSecondary" component="p" style={{ textTransform: 'capitalize' }}>{description}</Typography> */}
     </Box>
-    /* <Grid item xs>
-          <Typography variant="h4">{temperature}&deg;F</Typography>
-          <Typography variant="body2" color="textSecondary" component="p" style={{ textTransform: 'capitalize' }}>{description}</Typography>
-        </Grid> */
   );
 }
 
