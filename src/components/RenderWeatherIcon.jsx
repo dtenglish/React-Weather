@@ -1,5 +1,5 @@
 import React from 'react';
-import { useStyles } from '../theme'
+import { useStyles } from '../Theme'
 
 const RenderWeatherIcon = (props) => {
   const { condition, isDay } = props;

@@ -83,9 +83,9 @@ const Weather = () => {
 
 export default Weather;
 
-// To do: add toggle for dark/light mode
-//        improve error message display (mui tooltip)
+// To do: improve light/dark mode colors
 //        consider moving header into weather card?
+//        adjustments for phone screens
 //        add geocoding api
 //        switch to one call weather API using lat/long
 //        test on other browsers

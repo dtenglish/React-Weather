@@ -20,6 +20,7 @@ const WeatherOptions = props => {
                 checked={isMetric}
                 onChange={handleChange}
                 name="metricToggle"
+                color="primary"
               />
             }
             label={label}

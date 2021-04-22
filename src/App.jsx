@@ -1,18 +1,20 @@
 import React from 'react';
 import { ThemeProvider } from '@material-ui/core';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import { theme } from './theme';
+import usePersistedState from './hooks/usePersistedState';
+import { createTheme } from './Theme';
 import Weather from './components/Weather';
 import Header from './components/Header';
 
+
 const App = () => {
+  const [darkMode, setDarkMode] = usePersistedState('darkMode', false);
+  const theme = createTheme(darkMode);
 
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      {/* Header */}
-      <Header />
-      {/* Body */}
+      <Header {...{ darkMode }} {...{ setDarkMode }} />
       <Weather />
     </ThemeProvider>
   );

@@ -1,21 +1,33 @@
 import React from 'react';
-import { AppBar, IconButton, makeStyles, Toolbar, Typography } from '@material-ui/core';
-import SettingsIcon from '@material-ui/icons/Settings';
-import { useStyles } from '../theme'
+import { AppBar, FormControlLabel, Switch, Toolbar, Typography } from '@material-ui/core';
+import { useStyles } from '../Theme'
 
-const Header = () => {
+const Header = (props) => {
+  const { darkMode, setDarkMode } = props;
   const classes = useStyles();
+  const label = darkMode === true ? 'Dark Mode' : 'Light Mode';
+
+  const handleChange = () => {
+    setDarkMode(!darkMode);
+  };
+
   return (
     <AppBar position="static" className={classes.animatedBackground}>
       <Toolbar>
-        {/* Header Name */}
         <Typography variant="h4" className={classes.appTitle}>
           Weather Forecast
         </Typography>
-        {/* Settings Menu Button */}
-        <IconButton aria-label="settings">
-          <SettingsIcon fontSize="large" />
-        </IconButton>
+        <FormControlLabel
+          control={
+            <Switch
+              className={classes.styledSwitch}
+              checked={darkMode}
+              onChange={handleChange}
+              name="themeToggle"
+            />
+          }
+          label={label}
+        />
       </Toolbar>
     </AppBar>
   );

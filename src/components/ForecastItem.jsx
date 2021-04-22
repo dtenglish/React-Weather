@@ -28,3 +28,5 @@ const ForecastItem = props => {
 }
 
 export default ForecastItem;
+
+// to do: include description in phone list style format
