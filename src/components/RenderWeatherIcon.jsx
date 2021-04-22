@@ -1,7 +1,9 @@
 import React from 'react';
+import { useStyles } from '../theme'
 
 const RenderWeatherIcon = (props) => {
   const { condition, isDay } = props;
+  const classes = useStyles();
   let iconClass = '';
   if (isDay === true) {
     iconClass = `wi wi-owm-day-${condition}`;
@@ -14,7 +16,7 @@ const RenderWeatherIcon = (props) => {
     console.warn("Unexpected value of isDay:" + isDay);
   }
   return (
-    <i className={iconClass}></i>
+    <i className={`${iconClass} ${classes.animatedText}`}></i>
   );
 };
 

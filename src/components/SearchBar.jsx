@@ -1,4 +1,4 @@
-import { TextField } from '@material-ui/core';
+import { Box, TextField } from '@material-ui/core';
 import React from 'react';
 
 const SearchBar = props => {
@@ -6,23 +6,25 @@ const SearchBar = props => {
 
   if (error) {
     return (
-      <TextField
-        error
-        id="search"
-        label="Search for a location"
-        fullWidth={true}
-        onChange={onLocationChange}
-        helperText="Please try a different location"
-      />
+      <Box mb="1rem">
+        <TextField
+          error
+          id="search"
+          label="Search for a location"
+          onChange={onLocationChange}
+          helperText="Please try a different location"
+        />
+      </Box>
     );
   } else {
     return (
-      <TextField
-        id="search"
-        label="Search for a location"
-        fullWidth={true}
-        onChange={onLocationChange}
-      />
+      <Box mb="1rem">
+        <TextField
+          id="search"
+          label="Search for a location"
+          onChange={onLocationChange}
+        />
+      </Box>
     );
   }
 };

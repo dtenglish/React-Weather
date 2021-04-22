@@ -1,15 +1,15 @@
 import React from 'react';
-import { AppBar, IconButton, Toolbar, Typography } from '@material-ui/core';
+import { AppBar, IconButton, makeStyles, Toolbar, Typography } from '@material-ui/core';
 import SettingsIcon from '@material-ui/icons/Settings';
-
+import { useStyles } from '../theme'
 
 const Header = () => {
-
+  const classes = useStyles();
   return (
-    <AppBar position="static">
+    <AppBar position="static" className={classes.animatedBackground}>
       <Toolbar>
         {/* Header Name */}
-        <Typography variant="h4" style={{ flex: 1 }}>
+        <Typography variant="h4" className={classes.appTitle}>
           Weather Forecast
         </Typography>
         {/* Settings Menu Button */}

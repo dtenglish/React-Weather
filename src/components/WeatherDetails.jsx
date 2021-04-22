@@ -37,7 +37,7 @@ const WeatherDetails = props => {
       </Grid>
       {/* Current Weather Information */}
       <Grid item xs={6}>
-        <Box pt="2rem">
+        <Box pt="1.5rem">
           <Typography variant="h1" component="h2">
             {temperature}{tempUnit}
           </Typography>

@@ -51,7 +51,7 @@ const Weather = () => {
     <Container disableGutters={true} maxWidth="sm" >
       <Box mt="2rem">
         <Paper>
-          <Box px="2rem" py="1rem">
+          <Box px="2rem" pt="1.5rem" pb="1rem">
             <Grid container direction="row" spacing={2}>
               <Grid item xs={12}>
                 <SearchBar {...{ onLocationChange }} {...{ error }} />
@@ -83,4 +83,9 @@ const Weather = () => {
 
 export default Weather;
 
-// To do: add toggles for dark/light mode
+// To do: add toggle for dark/light mode
+//        improve error message display (mui tooltip)
+//        consider moving header into weather card?
+//        add geocoding api
+//        switch to one call weather API using lat/long
+//        test on other browsers
