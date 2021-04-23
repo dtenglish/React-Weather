@@ -72,7 +72,7 @@ const WeatherDetails = props => {
       {/* Current Weather Description */}
       <Grid item xs={12}>
         <Box textAlign="center" py=".5rem" fontStyle="italic">
-          <Typography variant="h2" component="h3" component="p" style={{ textTransform: 'capitalize' }}>
+          <Typography variant="h2" component="p" style={{ textTransform: 'capitalize' }}>
             {description}
           </Typography>
         </Box>
