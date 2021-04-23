@@ -3,8 +3,9 @@ import { ThemeProvider } from '@material-ui/core';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import usePersistedState from './hooks/usePersistedState';
 import { createTheme } from './Theme';
-import Weather from './components/Weather';
 import Header from './components/Header';
+import Footer from './components/Footer';
+import Weather from './components/Weather';
 
 
 const App = () => {
@@ -16,6 +17,7 @@ const App = () => {
       <CssBaseline />
       <Header {...{ darkMode }} {...{ setDarkMode }} />
       <Weather />
+      <Footer />
     </ThemeProvider>
   );
 }
