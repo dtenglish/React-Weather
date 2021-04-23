@@ -1,5 +1,14 @@
 import { createMuiTheme, makeStyles } from '@material-ui/core';
 
+const coreTheme = {
+  typography: {
+    'fontFamily': `'Noto Sans KR', 'Helvetica', 'Arial', sans-serif`,
+    'fontWeightLight': 300,
+    'fontWeightRegular': 400,
+    'fontWeightBold': 700
+  }
+};
+
 const lightTheme = {
   palette: {
     type: 'light',
@@ -12,7 +21,8 @@ const lightTheme = {
     info: {
       main: '#5A94D5'
     }
-  }
+  },
+  ...coreTheme
 };
 
 const darkTheme = {
@@ -27,7 +37,8 @@ const darkTheme = {
     info: {
       main: '#5A94D5'
     }
-  }
+  },
+  ...coreTheme
 };
 
 export const createTheme = darkMode => {
@@ -48,12 +59,11 @@ export const createTheme = darkMode => {
       root: {
         background: `
         linear-gradient(270deg,
-        ${theme.palette.info.main},
         ${theme.palette.secondary.main},
-        ${theme.palette.primary.main})
+        ${theme.palette.primary.main}),
+        ${theme.palette.info.main}
       `,
-        opacity: '50%',
-        height: 1
+        opacity: '50%'
       },
       middle: {
         margin: '.5rem'
@@ -78,6 +88,24 @@ export const createTheme = darkMode => {
         }
       }
     },
+    MuiTypography: {
+      h1: {
+        fontWeight: '400'
+      },
+      h2: {
+        fontSize: '1.75rem',
+        fontWeight: '400'
+      },
+      h3: {
+        fontSize: '1.75rem',
+        fontWeight: '500',
+        'letter-spacing': '1px'
+      },
+      h4: {
+        fontSize: '1.5rem',
+        fontWeight: '500'
+      }
+    }
   }
 
   return theme;
@@ -87,6 +115,14 @@ export const useStyles = makeStyles(theme => ({
   appTitle: {
     color: `${theme.palette.primary.contrastText}`,
     flex: 1,
+    fontSize: '2rem',
+    fontWeight: '400'
+  },
+  iconPrimary: {
+    fontSize: '9rem'
+  },
+  iconSecondary: {
+    fontSize: '3rem'
   },
   styledSwitch: {
     '& .Mui-checked': {

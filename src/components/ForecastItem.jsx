@@ -1,8 +1,10 @@
 import React from 'react';
 import { Box, Typography } from '@material-ui/core';
+import { useStyles } from '../Theme'
 import RenderWeatherIcon from './RenderWeatherIcon';
 
 const ForecastItem = props => {
+  const classes = useStyles();
   const {
     condition,
     description,
@@ -13,15 +15,15 @@ const ForecastItem = props => {
 
   return (
     <Box textAlign="center">
-      <Typography variant="h6">
+      <Typography variant="h3">
         {formattedDay}
       </Typography>
-      <Box my=".5rem">
-        <Typography variant="h3" color="secondary">
+      <Box mt=".25rem" mb=".5rem">
+        <Typography className={classes.iconSecondary}>
           <RenderWeatherIcon condition={condition} />
         </Typography>
       </Box>
-      <Typography variant="h5">{temperature}{tempUnit}</Typography>
+      <Typography variant="h4">{temperature}{tempUnit}</Typography>
       {/* <Typography variant="body2" color="textSecondary" component="p" style={{ textTransform: 'capitalize' }}>{description}</Typography> */}
     </Box>
   );

@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppBar, FormControlLabel, Switch, Toolbar, Typography } from '@material-ui/core';
+import { AppBar, Container, FormControlLabel, Switch, Toolbar, Typography } from '@material-ui/core';
 import { useStyles } from '../Theme'
 
 const Header = (props) => {
@@ -13,23 +13,27 @@ const Header = (props) => {
 
   return (
     <AppBar position="static" className={classes.animatedBackground}>
-      <Toolbar>
-        <Typography variant="h4" className={classes.appTitle}>
-          Weather Forecast
+      <Container disableGutters={true} maxWidth="sm">
+        <Toolbar disableGutters={true}>
+          <Typography variant="h1" className={classes.appTitle}>
+            Weather Forecast
         </Typography>
-        <FormControlLabel
-          control={
-            <Switch
-              className={classes.styledSwitch}
-              checked={darkMode}
-              onChange={handleChange}
-              name="themeToggle"
-            />
-          }
-          label={label}
-        />
-      </Toolbar>
+          <FormControlLabel
+            control={
+              <Switch
+                className={classes.styledSwitch}
+                checked={darkMode}
+                onChange={handleChange}
+                name="themeToggle"
+              />
+            }
+            label={label}
+            style={{ marginRight: '.25rem' }}
+          />
+        </Toolbar>
+      </Container>
     </AppBar>
+
   );
 }
 

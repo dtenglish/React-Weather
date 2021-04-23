@@ -1,8 +1,10 @@
 import React from 'react';
 import { Box, Grid, Typography } from '@material-ui/core';
+import { useStyles } from '../Theme'
 import RenderWeatherIcon from './RenderWeatherIcon';
 
 const WeatherDetails = props => {
+  const classes = useStyles();
   const {
     condition,
     description,
@@ -25,11 +27,11 @@ const WeatherDetails = props => {
       {/* Location & Date Information */}
       <Grid item container xs={12}>
         <Grid item xs={6}>
-          <Typography variant="h5">{location},<br />{convertedCountry}</Typography>
+          <Typography variant="h4">{location},<br />{convertedCountry}</Typography>
         </Grid>
         <Grid item xs={6}>
           <Box textAlign="right">
-            <Typography variant="h5" component="p">
+            <Typography variant="h4" component="p">
               {formattedDay}, {formattedDate}<br />{formattedTime}
             </Typography>
           </Box>
@@ -37,11 +39,11 @@ const WeatherDetails = props => {
       </Grid>
       {/* Current Weather Information */}
       <Grid item xs={6}>
-        <Box pt="1.5rem">
+        <Box pt="1rem">
           <Typography variant="h1" component="h2">
             {temperature}{tempUnit}
           </Typography>
-          <Box pl=".5rem">
+          <Box pt="1rem" pl=".5rem">
             <Typography variant="body1" component="p">
               Feels Like: {feelsLike}{tempUnit}
             </Typography>
@@ -61,17 +63,16 @@ const WeatherDetails = props => {
           justifyContent="center"
           alignItems="flex-end"
           height="100%"
-          pb="1rem"
         >
-          <Typography color="secondary" style={{ fontSize: '9rem', lineHeight: '0' }}>
+          <Typography color="secondary" className={classes.iconPrimary}>
             <RenderWeatherIcon condition={condition} isDay={isDay} />
           </Typography>
         </Box>
       </Grid>
       {/* Current Weather Description */}
       <Grid item xs={12}>
-        <Box textAlign="center" py="1rem">
-          <Typography variant="h5" component="p" style={{ textTransform: 'capitalize' }}>
+        <Box textAlign="center" py=".5rem" fontStyle="italic">
+          <Typography variant="h2" component="h3" component="p" style={{ textTransform: 'capitalize' }}>
             {description}
           </Typography>
         </Box>

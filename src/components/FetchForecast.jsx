@@ -20,7 +20,7 @@ const FetchForecast = (query, isMetric, setError) => {
       description: data.weather[0].description,
       temperature: Math.round(data.main.temp),
       timestamp: data.dt,
-      formattedDay: dayjs(convertedTimestamp).format('dddd'),
+      formattedDay: dayjs(convertedTimestamp).format('ddd'),
       formattedDate: dayjs(convertedTimestamp).format('MMM Do'),
       tempUnit: RenderTemperatureUnit(isMetric),
     }
