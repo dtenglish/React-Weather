@@ -13,3 +13,6 @@ A React based weather app that displays weather data pulled from the OpenWeather
 REACT_APP_API_KEY = ***Your API key***
 REACT_APP_API_URL = 'https://api.openweathermap.org/data/2.5'
 ```
+
+## License
+The source code for this app is licensed under the MIT license, which you can find in the LICENSE.txt file.
