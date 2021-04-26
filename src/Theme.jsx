@@ -89,9 +89,6 @@ export const createTheme = darkMode => {
       }
     },
     MuiTypography: {
-      h1: {
-        fontWeight: '400'
-      },
       h2: {
         fontSize: '1.75rem',
         fontWeight: '400'
@@ -131,6 +128,11 @@ export const useStyles = makeStyles(theme => ({
     '& .Mui-checked + .MuiSwitch-track': {
       backgroundColor: `${theme.palette.common.white}`
     }
+  },
+  temperaturePrimary: {
+    fontSize: '5rem',
+    fontWeight: '400',
+    lineHeight: '1.5'
   },
   animatedBackground: {
     background: `linear-gradient(
