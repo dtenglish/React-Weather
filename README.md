@@ -1,12 +1,18 @@
 # React Weather Forecast
 
-A React based weather app that displays weather data pulled from the OpenWeatherMap API
+A React based weather app that displays weather data pulled from the [OpenWeatherMap](https://openweathermap.org/) API
 
 ![Home page](https://github.com/dtenglish/weather-app/blob/main/public/screen.png)
 
+## Basic Information
+
+- Built with React and styled with Material UI.
+- Features toggles for light/dark mode and preferred measurement units.
+- Data persistence for location and settings.
+
 ## Getting Started
 
-- Sign up for an API key at [openweathermap.org](https://openweathermap.org/appid)
+- Sign up for an API key at [openweathermap.org](https://openweathermap.org/api)
 - Create an `.env.local` file in the root directory, add the following contents to the file:
 
 ```sh
