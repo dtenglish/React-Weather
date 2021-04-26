@@ -1,4 +1,4 @@
-import { Box, Typography } from '@material-ui/core';
+import { Box, Link, Typography } from '@material-ui/core';
 import React from 'react';
 
 const Footer = () => {
@@ -11,7 +11,7 @@ const Footer = () => {
       textAlign="center"
     >
       <Typography variant="body2" color="textSecondary">
-        By <a href="https://github.com/dtenglish">Daniel Taylor English</a>
+        By <Link href="https://github.com/dtenglish" color="primary">Daniel Taylor English</Link>
         <br />
         &copy;2021
       </Typography>
